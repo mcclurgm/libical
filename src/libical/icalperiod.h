@@ -129,7 +129,7 @@ LIBICAL_ICAL_EXPORT const char *icalperiodtype_as_ical_string(struct icalperiodt
 LIBICAL_ICAL_EXPORT char *icalperiodtype_as_ical_string_r(struct icalperiodtype p);
 
 /**
- * Creates a null period ::icalperiodtype.
+ * Create a null period ::icalperiodtype.
  * @return An ::icalperiodtype representing a null period
  * @sa icalperiodtype_is_null_period()
  *
@@ -147,7 +147,7 @@ LIBICAL_ICAL_EXPORT char *icalperiodtype_as_ical_string_r(struct icalperiodtype 
 LIBICAL_ICAL_EXPORT struct icalperiodtype icalperiodtype_null_period(void);
 
 /**
- * Checks if a given ::icalperiodtype is a null period.
+ * Check if a given ::icalperiodtype is a null period.
  * @return 1 if @a p is a null period, 0 otherwise
  * @sa icalperiodtype_null_period()
  *
@@ -163,7 +163,7 @@ LIBICAL_ICAL_EXPORT struct icalperiodtype icalperiodtype_null_period(void);
 LIBICAL_ICAL_EXPORT int icalperiodtype_is_null_period(struct icalperiodtype p);
 
 /**
- * Checks if a given ::icalperiodtype is a valid period.
+ * Check if a given ::icalperiodtype is a valid period.
  * @return 1 if @a p is a valid period, 0 otherwise
  *
  * ### Usage

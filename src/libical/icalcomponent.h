@@ -71,14 +71,14 @@ LIBICAL_ICAL_EXPORT int icalcomponent_count_properties(icalcomponent *component,
                                                        icalproperty_kind kind);
 
 /**
- * Sets the parent icalcomponent for the specified icalproperty @p property.
+ * Set the parent icalcomponent for the specified icalproperty @p property.
  * @since 3.0
  */
 LIBICAL_ICAL_EXPORT void icalproperty_set_parent(icalproperty *property,
                                                  icalcomponent *component);
 
 /**
- * Returns the parent @p icalcomponent for the specified @p icalproperty.
+ * Return the parent @p icalcomponent for the specified @p icalproperty.
  */
 LIBICAL_ICAL_EXPORT icalcomponent *icalproperty_get_parent(const icalproperty *property);
 
@@ -280,7 +280,7 @@ LIBICAL_ICAL_EXPORT void icalcomponent_foreach_recurrence(icalcomponent *comp,
                                                           void *callback_data);
 
 /**
- * Normalizes (reorders and sorts the properties) the specified icalcomponent @p comp.
+ * Normalize (reorders and sorts the properties) the specified icalcomponent @p comp.
  * @since 3.0
  */
 LIBICAL_ICAL_EXPORT void icalcomponent_normalize(icalcomponent *comp);

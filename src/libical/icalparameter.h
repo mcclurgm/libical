@@ -242,7 +242,7 @@ LIBICAL_ICAL_EXPORT char *icalparameter_as_ical_string(icalparameter *parameter)
 LIBICAL_ICAL_EXPORT char *icalparameter_as_ical_string_r(icalparameter *parameter);
 
 /**
- * Returns the icalparameter_kind of parameter.
+ * Return the icalparameter_kind of parameter.
  *
  * @param parameter The icalparameter whose kind to determine
  * @return The icalparameter_kind of the parameter

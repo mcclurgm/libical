@@ -2210,7 +2210,7 @@ static size_t icalcomponent_get_tzid_prefix_len(const char *tzid)
 }
 
 /**
- * Renames all references to the given TZIDs to a new name. rename_table
+ * Rename all references to the given TZIDs to a new name. rename_table
  * contains pairs of strings - a current TZID, and the new TZID to rename it
  * to.
  */
@@ -2240,7 +2240,7 @@ static void icalcomponent_rename_tzids_callback(icalparameter *param, void *data
 }
 
 /**
- * Calls the given function for each TZID parameter found in the component.
+ * Call the given function for each TZID parameter found in the component.
  */
 void icalcomponent_foreach_tzid(icalcomponent *comp,
                                 void (*callback) (icalparameter *param, void *data),
@@ -2280,7 +2280,7 @@ void icalcomponent_foreach_tzid(icalcomponent *comp,
 }
 
 /**
- *  Returns the icaltimezone from the component corresponding to the given
+ *  Return the icaltimezone from the component corresponding to the given
  *  TZID, or NULL if the component does not have a corresponding VTIMEZONE.
  */
 icaltimezone *icalcomponent_get_timezone(icalcomponent *comp, const char *tzid)
@@ -2340,7 +2340,7 @@ static int icalcomponent_compare_timezone_fn(const void *elem1, const void *elem
 }
 
 /**
- * Compares 2 VTIMEZONE components to see if they match, ignoring their TZIDs.
+ * Compare 2 VTIMEZONE components to see if they match, ignoring their TZIDs.
  * It returns 1 if they match, 0 if they don't, or -1 on error.
  */
 static int icalcomponent_compare_vtimezones(icalcomponent *vtimezone1, icalcomponent *vtimezone2)

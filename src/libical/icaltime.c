@@ -244,7 +244,7 @@ struct icaltimetype icaltime_from_timet_with_zone(const time_t tm, const int is_
 
 /**     @brief Convenience constructor.
  *
- * Returns the current time in the given timezone, as an icaltimetype.
+ * Return the current time in the given timezone, as an icaltimetype.
  */
 struct icaltimetype icaltime_current_time_with_zone(const icaltimezone *zone)
 {
@@ -591,7 +591,7 @@ int icaltime_week_number(const struct icaltimetype ictt)
 }
 
 /**
- *      Returns the day of the year, counting from 1 (Jan 1st).
+ *      Return the day of the year, counting from 1 (Jan 1st).
  */
 int icaltime_day_of_year(const struct icaltimetype t)
 {
@@ -678,7 +678,7 @@ struct icaltimetype icaltime_null_date(void)
 }
 
 /**
- *      Returns false if the time is clearly invalid, but is not null. This
+ *      Return false if the time is clearly invalid, but is not null. This
  *      is usually the result of creating a new time type buy not clearing
  *      it, or setting one of the flags to an illegal value.
  */

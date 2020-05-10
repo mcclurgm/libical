@@ -99,7 +99,7 @@ LIBICAL_ICAL_EXPORT struct icaldurationtype icaldurationtype_from_string(const c
 LIBICAL_ICAL_EXPORT int icaldurationtype_as_int(struct icaldurationtype duration);
 
 /**
- * Converts an icaldurationtype into the iCal format as string.
+ * Convert an icaldurationtype into the iCal format as string.
  * @param The icaldurationtype to convert to iCal format
  * @return A string representing duration @p d in iCal format
  * @sa icaldurationtype_as_ical_string_r()
@@ -125,7 +125,7 @@ LIBICAL_ICAL_EXPORT int icaldurationtype_as_int(struct icaldurationtype duration
 LIBICAL_ICAL_EXPORT char *icaldurationtype_as_ical_string(struct icaldurationtype d);
 
 /**
- * Converts an icaldurationtype into the iCal format as string.
+ * Convert an icaldurationtype into the iCal format as string.
  * @param The icaldurationtype to convert to iCal format
  * @return A string representing duration @p d in iCal format
  * @sa icaldurationtype_as_ical_string()

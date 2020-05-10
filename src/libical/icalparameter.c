@@ -207,7 +207,7 @@ static int icalparameter_is_safe_char(unsigned char character, int quoted)
 }
 
  /**
- * Appends the parameter value to the buffer, encoding per RFC 6868
+ * Append the parameter value to the buffer, encoding per RFC 6868
  * and filtering out those characters not permitted by the specifications
  *
  * paramtext    = *SAFE-CHAR

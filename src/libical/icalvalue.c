@@ -360,7 +360,7 @@ static icalvalue *icalvalue_new_enum(icalvalue_kind kind, int x_type, const char
 }
 
 /**
- * Transforms a simple float number string into a double.
+ * Transform a simple float number string into a double.
  * The decimal separator (if any) of the double has to be '.'
  * The code is locale *independent* and does *not* change the locale.
  * It should be thread safe.

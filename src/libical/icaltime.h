@@ -144,7 +144,7 @@ LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_from_string(const char *str);
 LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_from_day_of_year(const int doy, const int year);
 
 /**
- * Returns the time as seconds past the UNIX epoch
+ * Return the time as seconds past the UNIX epoch
  *
  * This function probably won't do what you expect.  In particular, you should
  * only pass an icaltime in UTC, since no conversion is done.  Even in that case,

@@ -233,7 +233,7 @@ LIBICAL_ICAL_EXPORT icalrecur_iterator *icalrecur_iterator_new(struct icalrecurr
                                                                struct icaltimetype dtstart);
 
 /**
- * Sets the date-time at which the iterator will start,
+ * Set the date-time at which the iterator will start,
  * where @p start is a value between DTSTART and UNTIL.
  *
  * NOTE: CAN NOT be used with RRULEs that contain COUNT.
@@ -249,7 +249,7 @@ LIBICAL_ICAL_EXPORT struct icaltimetype icalrecur_iterator_next(icalrecur_iterat
 LIBICAL_ICAL_EXPORT void icalrecur_iterator_free(icalrecur_iterator *);
 
 /**
- * Fills array up with at most 'count' time_t values, each
+ * Fill array up with at most 'count' time_t values, each
  *  representing an occurrence time in seconds past the POSIX epoch
  */
 LIBICAL_ICAL_EXPORT int icalrecur_expand_recurrence(const char *rule, time_t start,
