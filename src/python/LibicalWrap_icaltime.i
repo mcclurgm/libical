@@ -69,7 +69,7 @@
     /** Return -1, 0, or 1 to indicate that a<b, a==b or a>b */
     int compare(const icaltimetype b) { return icaltime_compare(*($self), b); }
 
-    /** like icaltime_compare, but only use the date parts. */
+    /** Like icaltime_compare, but only use the date parts. */
     int compare_date_only(const icaltimetype b, icaltimezone *tz=NULL) {
         if (tz == NULL)
             tz = icaltimezone_get_utc_timezone();

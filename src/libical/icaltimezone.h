@@ -17,7 +17,7 @@
 ======================================================================*/
 /**
  * @file icaltimezone.h
- * @brief timezone handling routines
+ * @brief Timezone handling routines
  */
 
 #ifndef ICALTIMEZONE_H

@@ -18,7 +18,7 @@
 //krazy:excludeall=cpp
 
 /** @file icaltimezone.c
- *  @brief implementation of timezone handling routines
+ *  @brief Implementation of timezone handling routines
  **/
 
 #ifdef HAVE_CONFIG_H

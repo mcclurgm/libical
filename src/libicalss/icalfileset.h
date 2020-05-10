@@ -61,7 +61,7 @@ LIBICAL_ICALSS_EXPORT int icalfileset_count_components(icalset *set, icalcompone
  */
 LIBICAL_ICALSS_EXPORT icalerrorenum icalfileset_select(icalset *set, icalgauge *gauge);
 
-/** clear the gauge **/
+/** Clear the gauge **/
 LIBICAL_ICALSS_EXPORT void icalfileset_clear(icalset *set);
 
 /** Get and search for a component by uid **/
@@ -105,7 +105,7 @@ LIBICAL_ICALSS_EXPORT icalcomponent *icalfileset_form_a_matched_recurrence_compo
 LIBICAL_ICALSS_EXPORT icalcomponent *icalfileset_get_component(icalset *cluster);
 
 /**
- * @brief options for opening an icalfileset.
+ * @brief Options for opening an icalfileset.
  *
  * These options should be passed to the icalset_new() function
  */

@@ -137,7 +137,7 @@ LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_from_timet_with_zone(const time
                                                                       const int is_date,
                                                                       const icaltimezone *zone);
 
-/** create a time from an ISO format string */
+/** Create a time from an ISO format string */
 LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_from_string(const char *str);
 
 /** Create a new time, given a day of year and a year. */
@@ -201,11 +201,11 @@ LIBICAL_ICAL_EXPORT int icaltime_is_utc(const struct icaltimetype t);
 /** Return -1, 0, or 1 to indicate that a is less than b, a equals b, or a is greater than b */
 LIBICAL_ICAL_EXPORT int icaltime_compare(const struct icaltimetype a, const struct icaltimetype b);
 
-/** like icaltime_compare, but only use the date parts. */
+/** Like icaltime_compare, but only use the date parts. */
 LIBICAL_ICAL_EXPORT int icaltime_compare_date_only(const struct icaltimetype a,
                                                    const struct icaltimetype b);
 
-/** like icaltime_compare, but only use the date parts. */
+/** Like icaltime_compare, but only use the date parts. */
 LIBICAL_ICAL_EXPORT int icaltime_compare_date_only_tz(const struct icaltimetype a,
                                                       const struct icaltimetype b,
                                                       icaltimezone *tz);
@@ -218,7 +218,7 @@ LIBICAL_ICAL_EXPORT void icaltime_adjust(struct icaltimetype *tt,
 /** Normalize the icaltime, so that all fields are within the normal range. */
 LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_normalize(const struct icaltimetype t);
 
-/** convert tt, of timezone tzid, into a utc time. Does nothing if the
+/** Convert tt, of timezone tzid, into a utc time. Does nothing if the
    time is already UTC.  */
 LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_convert_to_zone(const struct icaltimetype tt,
                                                                  icaltimezone *zone);
@@ -232,7 +232,7 @@ LIBICAL_ICAL_EXPORT int icaltime_is_leap_year(const int year);
 /** Return the number of days in this year */
 LIBICAL_ICAL_EXPORT int icaltime_days_in_year(const int year);
 
-/** @brief calculate an icaltimespan given a start and end time. */
+/** @brief Calculate an icaltimespan given a start and end time. */
 LIBICAL_ICAL_EXPORT struct icaltime_span icaltime_span_new(struct icaltimetype dtstart,
                                                            struct icaltimetype dtend, int is_busy);
 

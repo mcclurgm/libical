@@ -36,7 +36,7 @@
 
 /**
  *      @file astime.h
- *      @brief contains definitions of structures used for time calculations.
+ *      @brief Contains definitions of structures used for time calculations.
  */
 
 #ifndef ICAL_ASTIME_H
@@ -62,8 +62,8 @@ typedef struct ut_instant
 
 /*      Functions in caldate.c  */
 
-LIBICAL_ICAL_EXPORT long caldat(UTinstantPtr);      /** converts julian date to year,mo,da */
+LIBICAL_ICAL_EXPORT long caldat(UTinstantPtr);      /** Converts julian date to year,mo,da */
 
-LIBICAL_ICAL_EXPORT double juldat(UTinstantPtr);    /** returns julian day from year,mo,da */
+LIBICAL_ICAL_EXPORT double juldat(UTinstantPtr);    /** Returns julian day from year,mo,da */
 
 #endif

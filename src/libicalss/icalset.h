@@ -166,7 +166,7 @@ LIBICAL_ICALSS_EXPORT icalcomponent *icalsetiter_prior(icalsetiter *i);
 
 LIBICAL_ICALSS_EXPORT icalcomponent *icalsetiter_deref(icalsetiter *i);
 
-/** for subclasses that use multiple clusters that require specialized cluster traversal */
+/** For subclasses that use multiple clusters that require specialized cluster traversal */
 LIBICAL_ICALSS_EXPORT icalcomponent *icalsetiter_to_next(icalset *set, icalsetiter *i);
 
 LIBICAL_ICALSS_EXPORT icalcomponent *icalsetiter_to_prior(icalset *set, icalsetiter *i);

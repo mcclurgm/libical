@@ -1022,7 +1022,7 @@ struct icaltimetype icaltime_set_timezone(struct icaltimetype *t, const icaltime
 }
 
 /**
- *  @brief builds an icaltimespan given a start time, end time and busy value.
+ *  @brief Builds an icaltimespan given a start time, end time and busy value.
  *
  *  @param dtstart   The beginning time of the span, can be a date-time
  *                   or just a date.

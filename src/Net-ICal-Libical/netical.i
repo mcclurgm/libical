@@ -77,10 +77,10 @@ icalcomponent_kind icalcomponent_isa(icalcomponent* component);
 int icalrestriction_check(icalcomponent* comp);
 
 
-/* actually returns icalproperty_kind */
+/* Actually returns icalproperty_kind */
 int icalproperty_string_to_kind(const char* string);
 
-/* actually takes icalproperty_kind */
+/* Actually takes icalproperty_kind */
 icalproperty* icalproperty_new(int kind);
 
 icalproperty* icalproperty_new_from_string(char* str);
@@ -201,7 +201,7 @@ int icaltime_as_timet(struct icaltimetype);
    string is owned by libical */
 char* icaltime_as_ical_string(struct icaltimetype tt);
 
-/* create a time from an ISO format string */
+/* Create a time from an ISO format string */
 struct icaltimetype icaltime_from_string(const char* str);
 
 /* Routines for handling timezones */
@@ -209,12 +209,12 @@ struct icaltimetype icaltime_from_string(const char* str);
    indicating the date for which you want the offset */
 int icaltime_utc_offset(struct icaltimetype tt, const char* tzid);
 
-/* convert tt, of timezone tzid, into a utc time. Does nothing if the
+/* Convert tt, of timezone tzid, into a utc time. Does nothing if the
    time is already UTC.  */
 struct icaltimetype icaltime_as_utc(struct icaltimetype tt,
                     const char* tzid);
 
-/* convert tt, a time in UTC, into a time in timezone tzid */
+/* Convert tt, a time in UTC, into a time in timezone tzid */
 struct icaltimetype icaltime_as_zone(struct icaltimetype tt,
                      const char* tzid);
 
@@ -258,7 +258,7 @@ short icaltime_week_number(struct icaltimetype t);
 /* Return -1, 0, or 1 to indicate that a<b, a==b or a>b */
 int icaltime_compare(struct icaltimetype a,struct icaltimetype b);
 
-/* like icaltime_compare, but only use the date parts. */
+/* Like icaltime_compare, but only use the date parts. */
 int icaltime_compare_date_only(struct icaltimetype a, struct icaltimetype b);
 
 /* Return the number of days in the given month */

@@ -56,7 +56,7 @@ static int compare_span(void *a, void *b)
     }
 }
 
-/** @brief callback function for collecting spanlists of a
+/** @brief Callback function for collecting spanlists of a
  *         series of events.
  *
  *  @param   comp  A valid icalcomponent.
