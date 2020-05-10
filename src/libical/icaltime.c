@@ -778,7 +778,7 @@ int icaltime_is_null_time(const struct icaltimetype t)
 }
 
 /**
- *      Return -1, 0, or 1 to indicate that a is less than b, a equals b, or a is greater than b.
+ *      Return -1, 0, or 1 to indicate that a is less than b, a equals b, or a is greater than b, respectively.
  *      This calls icaltime_compare function after converting them to the utc
  *      timezone.
  */
@@ -964,7 +964,7 @@ struct icaldurationtype  icaltime_subtract(struct icaltimetype t1,
 
 /**     @brief Internal, shouldn't be part of the public API
  *
- *      Add or subtracts a number of days, hours, minutes and seconds from a icaltimetype.
+ *      Add or subtract a number of days, hours, minutes and seconds from a icaltimetype.
  *      NOTE: This function is exactly the same as icaltimezone_adjust_change()
  *      except for the type of the first parameter.
  */

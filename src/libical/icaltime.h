@@ -231,7 +231,7 @@ LIBICAL_ICAL_EXPORT int icaltime_is_date(const struct icaltimetype t);
 /** @brief Return true if time is relative to UTC zone */
 LIBICAL_ICAL_EXPORT int icaltime_is_utc(const struct icaltimetype t);
 
-/** Return -1, 0, or 1 to indicate that a is less than b, a equals b, or a is greater than b.
+/** Return -1, 0, or 1 to indicate that a is less than b, a equals b, or a is greater than b, respectively.
     This calls icaltime_compare function after converting them to the utc timezone. */
 LIBICAL_ICAL_EXPORT int icaltime_compare(const struct icaltimetype a, const struct icaltimetype b);
 
@@ -246,7 +246,7 @@ LIBICAL_ICAL_EXPORT int icaltime_compare_date_only_tz(const struct icaltimetype 
 
 /** @brief Internal, shouldn't be part of the public API
 
-    Add or subtracts a number of days, hours, minutes and seconds from a icaltimetype. */
+    Add or subtract a number of days, hours, minutes and seconds from a icaltimetype. */
 LIBICAL_ICAL_EXPORT void icaltime_adjust(struct icaltimetype *tt,
                                          const int days, const int hours,
                                          const int minutes, const int seconds);
