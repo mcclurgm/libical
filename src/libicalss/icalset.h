@@ -118,7 +118,7 @@ LIBICAL_ICALSS_EXPORT const char *icalset_path(icalset *set);
     is freed. **/
 LIBICAL_ICALSS_EXPORT void icalset_mark(icalset *set);
 
-/** Write changes to disk immediately */
+/** Write changes to disk immediately. */
 LIBICAL_ICALSS_EXPORT icalerrorenum icalset_commit(icalset *set);
 
 LIBICAL_ICALSS_EXPORT icalerrorenum icalset_add_component(icalset *set, icalcomponent *comp);
@@ -131,7 +131,7 @@ LIBICAL_ICALSS_EXPORT int icalset_count_components(icalset *set, icalcomponent_k
     that pass the gauge. */
 LIBICAL_ICALSS_EXPORT icalerrorenum icalset_select(icalset *set, icalgauge *gauge);
 
-/** Get a component by uid */
+/** Get a component by uid. */
 LIBICAL_ICALSS_EXPORT icalcomponent *icalset_fetch(icalset *set, const char *uid);
 
 LIBICAL_ICALSS_EXPORT int icalset_has_uid(icalset *set, const char *uid);
@@ -152,7 +152,7 @@ LIBICAL_ICALSS_EXPORT icalcomponent *icalset_get_first_component(icalset *set);
 
 LIBICAL_ICALSS_EXPORT icalcomponent *icalset_get_next_component(icalset *set);
 
-/** External Iterator with gauge - for thread safety */
+/** External Iterator with gauge - for thread safety. */
 LIBICAL_ICALSS_EXPORT extern icalsetiter icalsetiter_null;
 
 LIBICAL_ICALSS_EXPORT icalsetiter icalset_begin_component(icalset *set,

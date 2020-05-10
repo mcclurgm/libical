@@ -49,33 +49,33 @@ public:
     ICalSpanList();
     ICalSpanList(const ICalSpanList &v);
 
-    /** Construct an ICalSpanList from an icalset */
+    /** Construct an ICalSpanList from an icalset. */
     ICalSpanList(icalset *set, icaltimetype start, icaltimetype end);
 
-    /** Construct an ICalSpanList from the VFREEBUSY chunk of a icalcomponent */
+    /** Construct an ICalSpanList from the VFREEBUSY chunk of a icalcomponent. */
     explicit ICalSpanList(icalcomponent *comp);
 
-    /** Construct an ICalSpanList from the VFREEBUSY chunk of a vcomponent */
+    /** Construct an ICalSpanList from the VFREEBUSY chunk of a vcomponent. */
     explicit ICalSpanList(VComponent &comp);
 
-    /** Destructor */
+    /** Destructor. */
     ~ICalSpanList();
 
-    /** Return a VFREEBUSY icalcomponent */
+    /** Return a VFREEBUSY icalcomponent. */
     VComponent *get_vfreebusy(const char *organizer, const char *attendee);
 
     ICalSpanList &operator=(const ICalSpanList &);
 
-    /** Return the base data when casting */
+    /** Return the base data when casting. */
     operator  icalspanlist *()
     {
         return data;
     }
 
-    /** Return a vector of the number of events over delta t */
+    /** Return a vector of the number of events over delta t. */
     std::vector < int >as_vector(int delta_t);
 
-    /** Dump the spanlist to stdout */
+    /** Dump the spanlist to stdout. */
     void dump();
 
 private:

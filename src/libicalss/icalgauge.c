@@ -112,7 +112,7 @@ void icalgauge_free(icalgauge *gauge)
     free(gauge);
 }
 
-/** Convert a VQUERY component into a gauge */
+/** Convert a VQUERY component into a gauge. */
 icalcomponent *icalgauge_make_gauge(icalcomponent *query);
 
 /**

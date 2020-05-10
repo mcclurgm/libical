@@ -147,7 +147,7 @@ int icalrecur_expand_recurrence(const char* rule, int start,
                                 int count, int* array);
 
 
-/* Iterate through properties and components using strings for the kind */
+/* Iterate through properties and components using strings for the kind. */
 icalproperty* icallangbind_get_first_property(icalcomponent *c,
                                               const char* prop);
 
@@ -201,7 +201,7 @@ int icaltime_as_timet(struct icaltimetype);
    string is owned by libical */
 char* icaltime_as_ical_string(struct icaltimetype tt);
 
-/* Create a time from an ISO format string */
+/* Create a time from an ISO format string. */
 struct icaltimetype icaltime_from_string(const char* str);
 
 /* Routines for handling timezones */
@@ -214,11 +214,11 @@ int icaltime_utc_offset(struct icaltimetype tt, const char* tzid);
 struct icaltimetype icaltime_as_utc(struct icaltimetype tt,
                     const char* tzid);
 
-/* Convert tt, a time in UTC, into a time in timezone tzid */
+/* Convert tt, a time in UTC, into a time in timezone tzid. */
 struct icaltimetype icaltime_as_zone(struct icaltimetype tt,
                      const char* tzid);
 
-/* Return a null time, which indicates no time has been set. This time represent the beginning of the epoch */
+/* Return a null time, which indicates no time has been set. This time represent the beginning of the epoch. */
 struct icaltimetype icaltime_null_time(void);
 
 /* Return true of the time is null. */
@@ -236,7 +236,7 @@ int icaltime_is_valid_time(struct icaltimetype t);
    underflow. */
 struct icaltimetype icaltime_normalize(struct icaltimetype t);
 
-/* Return the day of the year of the given time */
+/* Return the day of the year of the given time. */
 short icaltime_day_of_year(struct icaltimetype t);
 
 /* Create a new time, given a day of year and a year. */
@@ -249,19 +249,19 @@ short icaltime_day_of_week(struct icaltimetype t);
    given time is within. */
 short icaltime_start_doy_week(struct icaltimetype t, int fdow);
 
-/* Return a string with the time represented in the same format as ctime(). THe string is owned by libical */
+/* Return a string with the time represented in the same format as ctime(). THe string is owned by libical. */
 char* icaltime_as_ctime(struct icaltimetype);
 
-/* Return the week number for the week the given time is within */
+/* Return the week number for the week the given time is within. */
 short icaltime_week_number(struct icaltimetype t);
 
-/* Return -1, 0, or 1 to indicate that a<b, a==b or a>b */
+/* Return -1, 0, or 1 to indicate that a<b, a==b or a>b. */
 int icaltime_compare(struct icaltimetype a,struct icaltimetype b);
 
 /* Like icaltime_compare, but only use the date parts. */
 int icaltime_compare_date_only(struct icaltimetype a, struct icaltimetype b);
 
-/* Return the number of days in the given month */
+/* Return the number of days in the given month. */
 short icaltime_days_in_month(short month,short year);
 
 

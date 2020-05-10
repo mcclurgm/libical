@@ -1336,7 +1336,7 @@ icalarray *icaltimezone_get_builtin_timezones(void)
     return builtin_timezones;
 }
 
-/** Release builtin timezone memory */
+/** Release builtin timezone memory. */
 void icaltimezone_free_builtin_timezones(void)
 {
     icaltimezone_array_free(builtin_timezones);

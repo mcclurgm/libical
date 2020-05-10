@@ -99,7 +99,7 @@
     <method name="i_cal_value_decode_ical_string" corresponds="CUSTOM" since="1.0">
         <parameter type="const gchar *" name="szText" comment="A string."/>
         <returns type="gchar *" annotation="allow-none, transfer full" comment="The decoded string. NULL if fail."/>
-        <comment xml:space="preserve">Extract the original character string encoded by the above function</comment>
+        <comment xml:space="preserve">Extract the original character string encoded by the above function.</comment>
         <custom>    gchar *szDecText;
     gchar *buffer = NULL;
     gsize bufSize;

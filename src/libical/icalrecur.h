@@ -147,7 +147,7 @@ LIBICAL_ICAL_EXPORT icalrecurrencetype_weekday icalrecur_string_to_weekday(const
 #define ICAL_BY_SETPOS_SIZE     ICAL_BY_YEARDAY_SIZE          /* 1 to N */
 #define ICAL_BY_DAY_SIZE        7*(ICAL_BY_WEEKNO_SIZE-1)+1   /* 1 to N */
 
-/** Main struct for holding digested recurrence rules */
+/** Main struct for holding digested recurrence rules. */
 struct icalrecurrencetype
 {
     icalrecurrencetype_frequency freq;
@@ -202,7 +202,7 @@ LIBICAL_ICAL_EXPORT void icalrecurrencetype_clear(struct icalrecurrencetype *r);
 /** 1 == Monday, etc. */
 LIBICAL_ICAL_EXPORT enum icalrecurrencetype_weekday icalrecurrencetype_day_day_of_week(short day);
 
-/** 0 == any of day of week. 1 == first, 2 = second, -2 == second to last, etc */
+/** 0 == any of day of week. 1 == first, 2 = second, -2 == second to last, etc. */
 LIBICAL_ICAL_EXPORT int icalrecurrencetype_day_position(short day);
 
 /**
@@ -242,10 +242,10 @@ LIBICAL_ICAL_EXPORT icalrecur_iterator *icalrecur_iterator_new(struct icalrecurr
 LIBICAL_ICAL_EXPORT int icalrecur_iterator_set_start(icalrecur_iterator *impl,
                                                      struct icaltimetype start);
 
-/** Get the next occurrence from an iterator */
+/** Get the next occurrence from an iterator. */
 LIBICAL_ICAL_EXPORT struct icaltimetype icalrecur_iterator_next(icalrecur_iterator *);
 
-/** Free the iterator */
+/** Free the iterator. */
 LIBICAL_ICAL_EXPORT void icalrecur_iterator_free(icalrecur_iterator *);
 
 /**

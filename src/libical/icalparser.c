@@ -169,7 +169,7 @@ static char *parser_get_next_char(char c, char *str, int qm)
     return 0;
 }
 
-/** Make a new tmp buffer out of a substring */
+/** Make a new tmp buffer out of a substring. */
 static char *make_segment(char *start, char *end)
 {
     char *buf, *tmp;

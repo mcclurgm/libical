@@ -133,7 +133,7 @@ int ICalProperty::count_parameters()
     return icalproperty_count_parameters(imp);
 }
 
-/** Iterate through the parameters */
+/** Iterate through the parameters. */
 ICalParameter *ICalProperty::get_first_parameter(const icalparameter_kind &kind)
 {
     icalparameter *p = icalproperty_get_first_parameter(imp, kind);
@@ -146,7 +146,7 @@ ICalParameter *ICalProperty::get_next_parameter(const icalparameter_kind &kind)
     return (p != NULL) ? new ICalParameter(p) : NULL;
 }
 
-/** Access the value of the property */
+/** Access the value of the property. */
 void ICalProperty::set_value(const ICalValue &val)
 {
     icalproperty_set_value(imp, const_cast<ICalValue &>(val));

@@ -70,11 +70,11 @@ public:
     void remove_parameter_by_kind(const icalparameter_kind &kind);
     int count_parameters();
 
-    /** Iterate through the parameters */
+    /** Iterate through the parameters. */
     ICalParameter *get_first_parameter(const icalparameter_kind &kind);
     ICalParameter *get_next_parameter(const icalparameter_kind &kind);
 
-    /** Access the value of the property */
+    /** Access the value of the property. */
     void set_value(const ICalValue &val);
     void set_value_from_string(const std::string &val, const std::string &kind);
 
