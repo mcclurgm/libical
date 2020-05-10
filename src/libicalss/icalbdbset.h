@@ -29,7 +29,7 @@ enum icalbdbset_subdb_type
 { ICALBDB_CALENDARS, ICALBDB_EVENTS, ICALBDB_TODOS, ICALBDB_REMINDERS };
 typedef enum icalbdbset_subdb_type icalbdbset_subdb_type;
 
-/** sets up the db environment, should be done in parent thread.. */
+/** set up the db environment, should be done in parent thread.. */
 LIBICAL_ICALSS_EXPORT int icalbdbset_init_dbenv(char *db_env_dir,
                                                 void (*logDbFunc) (const DB_ENV *,
                                                                    const char *, const char *));
@@ -42,7 +42,7 @@ LIBICAL_ICALSS_EXPORT void icalbdbset_checkpoint(void);
 
 LIBICAL_ICALSS_EXPORT void icalbdbset_rmdbLog(void);
 
-/** Creates a component handle.  flags allows caller to
+/** Create a component handle.  flags allows caller to
    specify if database is internally a BTREE or HASH */
 LIBICAL_ICALSS_EXPORT icalset *icalbdbset_new(const char *database_filename,
                                               icalbdbset_subdb_type subdb_type,

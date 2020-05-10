@@ -255,14 +255,14 @@ LIBICAL_ICAL_EXPORT void icalcomponent_set_status(icalcomponent *comp, enum ical
 
 LIBICAL_ICAL_EXPORT enum icalproperty_status icalcomponent_get_status(icalcomponent *comp);
 
-/** Calls the given function for each TZID parameter found in the
+/** Call the given function for each TZID parameter found in the
     component, and any subcomponents. */
 LIBICAL_ICAL_EXPORT void icalcomponent_foreach_tzid(icalcomponent *comp,
                                                     void (*callback) (icalparameter *param,
                                                                       void *data),
                                                     void *callback_data);
 
-/** Returns the icaltimezone in the component corresponding to the
+/** Return the icaltimezone in the component corresponding to the
     TZID, or NULL if it can't be found. */
 LIBICAL_ICAL_EXPORT icaltimezone *icalcomponent_get_timezone(icalcomponent *comp,
                                                              const char *tzid);

@@ -1568,7 +1568,7 @@ static void ss_load_buffer_state  (void)
                 ss_load_buffer_state( );
 }
 
-/** Pushes the new state onto the stack. The new state becomes
+/** Push the new state onto the stack. The new state becomes
  *  the current state. This function will allocate the stack
  *  if necessary.
  *  @param new_buffer The new state.
@@ -1601,7 +1601,7 @@ void sspush_buffer_state (YY_BUFFER_STATE new_buffer )
         (yy_did_buffer_switch_on_eof) = 1;
 }
 
-/** Removes and deletes the top of the stack, if present.
+/** Remove and deletes the top of the stack, if present.
  *  The next element becomes the new top.
  *
  */

@@ -54,7 +54,7 @@
 
     int is_null_time() { return icaltime_is_null_time(*($self)); }
 
-    /** Returns false if the time is clearly invalid, but is not null. This
+    /** Return false if the time is clearly invalid, but is not null. This
        is usually the result of creating a new time type buy not clearing
        it, or setting one of the flags to an illegal value. */
     int is_valid_time() { return icaltime_is_valid_time(*($self)); }
@@ -76,7 +76,7 @@
         return icaltime_compare_date_only_tz(*($self), b, tz);
     }
 
-    /** Adds or subtracts a number of days, hours, minutes and seconds. */
+    /** Add or subtracts a number of days, hours, minutes and seconds. */
     void  adjust(const int days, const int hours, const int minutes, const int seconds) {
         return icaltime_adjust($self, days, hours, minutes, seconds);
     }

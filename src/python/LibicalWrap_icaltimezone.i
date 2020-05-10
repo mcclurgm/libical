@@ -67,7 +67,7 @@ class icaltzinfo(datetime.tzinfo):
 
 #if 0
 
-/** Sets the prefix to be used for tzid's generated from system tzdata.
+/** Set the prefix to be used for tzid's generated from system tzdata.
     Must be globally unique (such as a domain name owned by the developer
     of the calling application), and begin and end with forward slashes.
     Do not change or de-allocate the string buffer after calling this.
@@ -81,7 +81,7 @@ void icaltimezone_set_tzid_prefix(const char *new_prefix);
 /** Free any builtin timezone information **/
 void icaltimezone_free_builtin_timezones(void);
 
-/** Returns the array of builtin icaltimezones. */
+/** Return the array of builtin icaltimezones. */
 icalarray* icaltimezone_get_builtin_timezones   (void);
 
 /**
@@ -97,7 +97,7 @@ void    icaltimezone_convert_time       (struct icaltimetype *tt,
  * @par Getting offsets from UTC.
  */
 
-/** Calculates the UTC offset of a given local time in the given
+/** Calculate the UTC offset of a given local time in the given
    timezone.  It is the number of seconds to add to UTC to get local
    time.  The is_daylight flag is set to 1 if the time is in
    daylight-savings time. */
@@ -105,7 +105,7 @@ int icaltimezone_get_utc_offset (icaltimezone *zone,
                  struct icaltimetype *tt,
                  int        *is_daylight);
 
-/** Calculates the UTC offset of a given UTC time in the given
+/** Calculate the UTC offset of a given UTC time in the given
    timezone.  It is the number of seconds to add to UTC to get local
    time.  The is_daylight flag is set to 1 if the time is in
    daylight-savings time. */
@@ -129,7 +129,7 @@ void icaltimezone_release_zone_tab(void);
  * @par Debugging Output.
  */
 
-/** Dumps information about changes in the timezone up to and including
+/** Dump information about changes in the timezone up to and including
    max_year. */
 int icaltimezone_dump_changes       (icaltimezone *zone,
                          int         max_year,

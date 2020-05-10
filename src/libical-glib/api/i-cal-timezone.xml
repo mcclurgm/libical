@@ -35,7 +35,7 @@
     </method>
     <method name="i_cal_timezone_set_tzid_prefix" corresponds="icaltimezone_set_tzid_prefix" kind="set" since="1.0">
         <parameter type="const gchar *" name="new_prefix" comment="The #ICalTimezone to be set"/>
-        <comment xml:space="preserve">Sets the prefix to be used for tzid's generated from system tzdata. Must be globally unique (such as a domain name owned by the developer of the calling application), and begin and end with forward slashes. Do not change or de-allocate the string buffer after calling this.</comment>
+        <comment xml:space="preserve">Set the prefix to be used for tzid's generated from system tzdata. Must be globally unique (such as a domain name owned by the developer of the calling application), and begin and end with forward slashes. Do not change or de-allocate the string buffer after calling this.</comment>
     </method>
     <method name="i_cal_timezone_free_builtin_timezones" corresponds="icaltimezone_free_builtin_timezones" kind="others" since="1.0">
         <comment xml:space="preserve">Free any builtin timezone information.</comment>
@@ -43,62 +43,62 @@
     <method name="i_cal_timezone_get_builtin_timezone" corresponds="icaltimezone_get_builtin_timezone" kind="get" since="1.0">
         <parameter type="const gchar *" name="location" annotation="nullable" comment="The location representing the timezone."/>
         <returns type="ICalTimezone *" translator="i_cal_timezone_new_full" translator_argus="NULL, TRUE" annotation="transfer none, nullable" comment="The builtin #ICalTimezone with the name of @location"/>
-        <comment xml:space="preserve">Returns a single builtin timezone, given its Olson city name.</comment>
+        <comment xml:space="preserve">Return a single builtin timezone, given its Olson city name.</comment>
     </method>
     <method name="i_cal_timezone_get_builtin_timezone_from_offset" corresponds="icaltimezone_get_builtin_timezone_from_offset" kind="get" since="1.0">
         <parameter type="gint" name="offset" comment="The offset used to get the #ICalTimezone"/>
         <parameter type="const gchar *" name="tzname" annotation="nullable" comment="The reference #ICalTimezone name"/>
         <returns type="ICalTimezone *" translator="i_cal_timezone_new_full" translator_argus="NULL, TRUE" annotation="transfer none"/>
-        <comment xml:space="preserve">Returns a single builtin timezone, given its offset.</comment>
+        <comment xml:space="preserve">Return a single builtin timezone, given its offset.</comment>
     </method>
     <method name="i_cal_timezone_get_builtin_timezone_from_tzid" corresponds="icaltimezone_get_builtin_timezone_from_tzid" kind="get" since="1.0">
         <parameter type="const gchar *" name="tzid" annotation="nullable" comment="The tzid name"/>
         <returns type="ICalTimezone *" translator="i_cal_timezone_new_full" translator_argus="NULL, TRUE" annotation="transfer none"/>
-        <comment xml:space="preserve">Returns a single builtin timezone, given its TZID.</comment>
+        <comment xml:space="preserve">Return a single builtin timezone, given its TZID.</comment>
     </method>
     <method name="i_cal_timezone_get_builtin_timezones" corresponds="icaltimezone_get_builtin_timezones" kind="get" since="1.0">
         <returns type="ICalArray *" annotation="transfer none" translator_argus="NULL, TRUE" comment="An #ICalArray of the builtin #ICalTimezone objects."/>
-        <comment xml:space="preserve">Returns a list of builtin timezones.</comment>
+        <comment xml:space="preserve">Return a list of builtin timezones.</comment>
     </method>
     <method name="i_cal_timezone_get_utc_timezone" corresponds="icaltimezone_get_utc_timezone" kind="get" since="1.0">
         <returns type="ICalTimezone *" translator="i_cal_timezone_new_full" translator_argus="NULL, TRUE" annotation="transfer none" comment="The utc #ICalTimezone"/>
-        <comment xml:space="preserve">Returns the UTC timezone.</comment>
+        <comment xml:space="preserve">Return the UTC timezone.</comment>
     </method>
     <method name="i_cal_timezone_get_tzid" corresponds="icaltimezone_get_tzid" kind="get" since="1.0">
         <parameter type="const ICalTimezone *" name="zone" annotation="nullable" comment="The #ICalTimezone to be queried"/>
         <returns type="const gchar *" annotation="nullable" comment="The timezone id, or %NULL"/>
-        <comment xml:space="preserve">Returns the TZID of a timezone, or %NULL, when none is set or when @zone is also %NULL.</comment>
+        <comment xml:space="preserve">Return the TZID of a timezone, or %NULL, when none is set or when @zone is also %NULL.</comment>
     </method>
     <method name="i_cal_timezone_get_location" corresponds="icaltimezone_get_location" kind="get" since="1.0">
         <parameter type="const ICalTimezone *" name="zone" annotation="nullable" comment="The #ICalTimezone to be queried"/>
         <returns type="const gchar *" annotation="nullable" comment="The location of the #ICalTimezone, or %NULL"/>
-        <comment xml:space="preserve">Returns the city name of a timezone, or %NULL, when none is set or when @zone is also %NULL.</comment>
+        <comment xml:space="preserve">Return the city name of a timezone, or %NULL, when none is set or when @zone is also %NULL.</comment>
     </method>
     <method name="i_cal_timezone_get_tznames" corresponds="icaltimezone_get_tznames" kind="get" since="1.0">
         <parameter type="const ICalTimezone *" name="zone" annotation="nullable" comment="The #ICalTimezone to be queried"/>
         <returns type="const gchar *" annotation="nullable" comment="The timezone name"/>
-        <comment xml:space="preserve">Returns the TZNAME properties used in the latest STANDARD and DAYLIGHT components. If they are the same it will return just one, e.g. "LMT". If they are different it will format them like "EST/EDT". Note that this may also return NULL.</comment>
+        <comment xml:space="preserve">Return the TZNAME properties used in the latest STANDARD and DAYLIGHT components. If they are the same it will return just one, e.g. "LMT". If they are different it will format them like "EST/EDT". Note that this may also return NULL.</comment>
     </method>
     <method name="i_cal_timezone_get_latitude" corresponds="icaltimezone_get_latitude" kind="get" since="1.0">
         <parameter type="const ICalTimezone *" name="zone" annotation="nullable" comment="The #ICalTimezone to be queried"/>
         <returns type="gdouble" comment="The latitude of the #ICalTimezone"/>
-        <comment xml:space="preserve">Returns the latitude of a builtin timezone.</comment>
+        <comment xml:space="preserve">Return the latitude of a builtin timezone.</comment>
     </method>
     <method name="i_cal_timezone_get_longitude" corresponds="icaltimezone_get_longitude" kind="get" since="1.0">
         <parameter type="const ICalTimezone *" name="zone" annotation="nullable" comment="The #ICalTimezone to be queried"/>
         <returns type="gdouble" comment="The longitude of the #ICalTimezone."/>
-        <comment xml:space="preserve">Returns the longitude of a builtin timezone.</comment>
+        <comment xml:space="preserve">Return the longitude of a builtin timezone.</comment>
     </method>
     <method name="i_cal_timezone_get_component" corresponds="icaltimezone_get_component" kind="get" since="1.0">
         <parameter type="const ICalTimezone *" name="zone" annotation="nullable" comment="The #ICalTimezone to be queried"/>
         <returns type="ICalComponent *" annotation="transfer full" translator_argus="(GObject *)zone" comment="the VTIMEZONE component of the @zone."/>
-        <comment xml:space="preserve">Returns the VTIMEZONE component of a timezone.</comment>
+        <comment xml:space="preserve">Return the VTIMEZONE component of a timezone.</comment>
     </method>
     <method name="i_cal_timezone_set_component" corresponds="CUSTOM" kind="set" since="1.0">
         <parameter type="ICalTimezone *" name="zone" comment="The #ICalTimezone to be set"/>
         <parameter type="ICalComponent *" name="comp" comment="The VTIMEZONE component of an #ICalTimezone, initializing the tzid, location and tzname fields."/>
         <returns type="gint" comment="Whether the action is successful. 1 for success, 0 for failure."/>
-        <comment xml:space="preserve">Sets the VTIMEZONE component of #ICalTimezone, initializing the tzid, location and tzname fields. It returns 1 on success or 0 on failure, i.e. no TZID was found.
+        <comment xml:space="preserve">Set the VTIMEZONE component of #ICalTimezone, initializing the tzid, location and tzname fields. It returns 1 on success or 0 on failure, i.e. no TZID was found.
  *
  * @note The @zone assumes ownership of the @comp, thus make sure you pass an unowned #ICalComponent.</comment>
 	<custom xml:space="preserve">    g_return_val_if_fail(I_CAL_IS_TIMEZONE(zone), 0);

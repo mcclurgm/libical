@@ -126,10 +126,10 @@ LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_null_time(void);
 /** Return a null date. */
 LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_null_date(void);
 
-/** Returns the current time in the given timezone, as an icaltimetype. */
+/** Return the current time in the given timezone, as an icaltimetype. */
 LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_current_time_with_zone(const icaltimezone *zone);
 
-/** Returns the current day as an icaltimetype, with is_date set. */
+/** Return the current day as an icaltimetype, with is_date set. */
 LIBICAL_ICAL_EXPORT struct icaltimetype icaltime_today(void);
 
 /** Convert seconds past UNIX epoch to a timetype, using timezones. */
@@ -187,7 +187,7 @@ LIBICAL_ICAL_EXPORT int icaltime_week_number(const struct icaltimetype t);
 /** Return true of the time is null. */
 LIBICAL_ICAL_EXPORT int icaltime_is_null_time(const struct icaltimetype t);
 
-/** Returns false if the time is clearly invalid, but is not null. This
+/** Return false if the time is clearly invalid, but is not null. This
    is usually the result of creating a new time type buy not clearing
    it, or setting one of the flags to an illegal value. */
 LIBICAL_ICAL_EXPORT int icaltime_is_valid_time(const struct icaltimetype t);
@@ -210,7 +210,7 @@ LIBICAL_ICAL_EXPORT int icaltime_compare_date_only_tz(const struct icaltimetype 
                                                       const struct icaltimetype b,
                                                       icaltimezone *tz);
 
-/** Adds or subtracts a number of days, hours, minutes and seconds. */
+/** Add or subtracts a number of days, hours, minutes and seconds. */
 LIBICAL_ICAL_EXPORT void icaltime_adjust(struct icaltimetype *tt,
                                          const int days, const int hours,
                                          const int minutes, const int seconds);

@@ -132,12 +132,12 @@
     <method name="i_cal_time_is_date" corresponds="icaltime_is_date" since="1.0">
         <parameter type="const ICalTime *" name="tt" annotation="in, transfer none" comment="The #ICalTime to be checked"/>
         <returns type="gboolean" comment="true if time is of DATE type, false if DATE-TIME." />
-        <comment xml:space="preserve">Returns true if time is of DATE type, false if DATE-TIME.</comment>
+        <comment xml:space="preserve">Return true if time is of DATE type, false if DATE-TIME.</comment>
     </method>
     <method name="i_cal_time_is_utc" corresponds="icaltime_is_utc" since="1.0">
         <parameter type="const ICalTime *" name="tt" annotation="in, transfer none" comment="The #ICalTime to be checked"/>
         <returns type="gboolean" comment="true if time is relative to UTC zone." />
-        <comment xml:space="preserve">Returns true if time is relative to UTC zone.</comment>
+        <comment xml:space="preserve">Return true if time is relative to UTC zone.</comment>
     </method>
     <method name="i_cal_time_compare" corresponds="icaltime_compare" since="1.0">
         <parameter type="const ICalTime *" name="a" annotation="in, transfer none" comment="The #ICalTime to be compared"/>
