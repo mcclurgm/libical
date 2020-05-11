@@ -60,16 +60,19 @@ LIBICAL_ICAL_EXPORT void icaltimezone_set_tzid_prefix(const char *new_prefix);
  * @par Accessing timezones.
  */
 
-/** Free any builtin timezone information **/
+/** Release builtin timezone memory. */
 LIBICAL_ICAL_EXPORT void icaltimezone_free_builtin_timezones(void);
 
-/** Return the array of builtin icaltimezones. */
+/** Return an icalarray of icaltimezone structs, one for each builtin
+   timezone.  This will load and parse the zones.tab file to get the
+   timezone names and their coordinates. It will not load the
+   VTIMEZONE data for any timezones. */
 LIBICAL_ICAL_EXPORT icalarray *icaltimezone_get_builtin_timezones(void);
 
 /** Return a single builtin timezone, given its Olson city name. */
 LIBICAL_ICAL_EXPORT icaltimezone *icaltimezone_get_builtin_timezone(const char *location);
 
-/** Return a single builtin timezone, given its offset. */
+/** Return a single builtin timezone, given its offset from UTC. */
 LIBICAL_ICAL_EXPORT icaltimezone *icaltimezone_get_builtin_timezone_from_offset(int offset,
                                                                                 const char *tzname);
 

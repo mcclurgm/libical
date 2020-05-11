@@ -241,7 +241,8 @@ icaltimezone *icaltimezone_copy(icaltimezone *originalzone)
     return zone;
 }
 
-/** Free all memory used for the icaltimezone. */
+/** Free all memory used for the icaltimezone. Set free_struct to free the
+   icaltimezone struct as well. */
 void icaltimezone_free(icaltimezone *zone, int free_struct)
 {
     icaltimezone_reset(zone);
@@ -1442,7 +1443,7 @@ static int get_offset(icaltimezone *zone)
     return offset;
 }
 
-/** Return a single builtin timezone, given its offset from UTC */
+/** Return a single builtin timezone, given its offset from UTC. */
 icaltimezone *icaltimezone_get_builtin_timezone_from_offset(int offset, const char *tzname)
 {
     icaltimezone *zone = NULL;
@@ -1532,7 +1533,7 @@ icaltimezone *icaltimezone_get_builtin_timezone_from_tzid(const char *tzid)
     }
 }
 
-/** Return the special UTC timezone. */
+/** Return the UTC timezone. */
 icaltimezone *icaltimezone_get_utc_timezone(void)
 {
     if (!builtin_timezones)
