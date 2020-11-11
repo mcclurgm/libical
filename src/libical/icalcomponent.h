@@ -226,24 +226,6 @@ LIBICAL_ICAL_EXPORT struct icaltime_span icalcomponent_get_span(icalcomponent *c
 
 /******************** Convenience routines **********************/
 
-/**     @brief Sets the DTSTART property to the given icaltime,
- *
- *      This method respects the icaltime type (DATE vs DATE-TIME) and
- *      timezone (or lack thereof).
- */
-LIBICAL_ICAL_EXPORT void icalcomponent_set_dtstart(icalcomponent *comp, struct icaltimetype v);
-
-/**     @brief Gets the DTSTART property as an icaltime
- *
- *      If DTSTART is a DATE-TIME with a timezone parameter and a
- *      corresponding VTIMEZONE is present in the component, the
- *      returned component will already be in the correct timezone;
- *      otherwise the caller is responsible for converting it.
- *
- *      FIXME this is useless until we can flag the failure
- */
-LIBICAL_ICAL_EXPORT struct icaltimetype icalcomponent_get_dtstart(icalcomponent *comp);
-
 /* For the icalcomponent routines only, dtend and duration are tied
    together. If you call the get routine for one and the other exists,
    the routine will calculate the return value. That is, if there is a
@@ -253,95 +235,107 @@ LIBICAL_ICAL_EXPORT struct icaltimetype icalcomponent_get_dtstart(icalcomponent 
    be set to ICAL_MALFORMEDDATA_ERROR. If you call a set routine and
    neither exists, the routine will create the appropriate property. */
 
-/**     @brief Gets the DTEND property as an icaltime.
+/**     @brief Sets the DTSTART property to the given @ref icaltime.h "icaltime".
  *
- *      If a DTEND property is not present but a DURATION is, we use
- *      that to determine the proper end.
+ *      This routine respects the @ref icaltime.h "icaltime" type (`DATE` vs 
+ *      `DATE-TIME`) and timezone (or lack thereof).
+ */
+LIBICAL_ICAL_EXPORT void icalcomponent_set_dtstart(icalcomponent *comp, struct icaltimetype v);
+
+/**     @brief Gets the `DTSTART` property as an @ref icaltime.h "icaltime".
  *
- *      If DTSTART is a DATE-TIME with a timezone parameter and a
- *      corresponding VTIMEZONE is present in the component, the
+ *      If `DTSTART` is a `DATE-TIME` with a timezone parameter and a
+ *      corresponding `VTIMEZONE` is present in the component, the
  *      returned component will already be in the correct timezone;
  *      otherwise the caller is responsible for converting it.
  *
- *      For the icalcomponent routines only, dtend and duration are tied
- *      together. If you call the get routine for one and the other
- *      exists, the routine will calculate the return value. That is, if
- *      there is a DTEND and you call get_duration, the routine will
- *      return the difference between DTEND and DTSTART.
+ *      FIXME this is useless until we can flag the failure
+ */
+LIBICAL_ICAL_EXPORT struct icaltimetype icalcomponent_get_dtstart(icalcomponent *comp);
+
+/**     @brief Gets the `DTEND` property as an @ref icaltime.h "icaltime".
+ *
+ *      If `DTSTART` is a `DATE-TIME` with a timezone parameter and a
+ *      corresponding `VTIMEZONE` is present in the component, the
+ *      returned component will already be in the correct timezone;
+ *      otherwise the caller is responsible for converting it.
+ *
+ *      \note
+ *      For the `icalcomponent` functions only, the `DTEND` and 
+ *      `DURATION` properties are tied together. This function uses the 
+ *      `DURATION` property to determine the proper end if necessary. If there 
+ *      is a `DURATION` and you call this, it will return the result of adding 
+ *      `DURATION` to `DTSTART`.
  *
  *      FIXME this is useless until we can flag the failure
  */
 LIBICAL_ICAL_EXPORT struct icaltimetype icalcomponent_get_dtend(icalcomponent *comp);
 
-/**     @brief Sets the DTEND property to given icaltime.
+/**     @brief Sets the `DTEND` property to the given @ref icaltime.h "icaltime".
  *
- *      This method respects the icaltime type (DATE vs DATE-TIME) and
- *      timezone (or lack thereof).
+ *      This routine respects the @ref icaltime.h "icaltime" type (`DATE` vs 
+ *      `DATE-TIME`) and timezone (or lack thereof).
  *
- *      This also checks that a DURATION property isn't already there,
- *      and returns an error if it is. It's the caller's responsibility
- *      to remove it.
- *
- *      For the icalcomponent routines only, DTEND and DURATION are tied
- *      together. If you call this routine and DURATION exists, no action
- *      will be taken and icalerrno will be set to ICAL_MALFORMEDDATA_ERROR.
- *      If neither exists, the routine will create the appropriate
- *      property.
+ *      \note
+ *      For the `icalcomponent` functions only, the `DTEND` and `DURATION` 
+ *      properties are tied together. This function checks that a `DURATION` 
+ *      property doesn't already exist, and returns an 
+ *      `ICAL_MALFORMEDDATA_ERROR` error if it does. It's the caller's 
+ *      responsibility to remove it.
  */
 LIBICAL_ICAL_EXPORT void icalcomponent_set_dtend(icalcomponent *comp, struct icaltimetype v);
 
-/** @brief Returns the time a VTODO task is DUE.
+/** @brief Returns the time a `VTODO` task is DUE.
  *
- *  @param comp Valid calendar component.
+ *  @param comp A valid `VTODO` component.
  *
- *  Uses the DUE: property if it exists, otherwise we calculate the DUE
- *  value by adding the task's duration to the DTSTART time.
+ *  This uses the `DUE` property if it exists; otherwise, it calculates the 
+ *  `DUE` value by adding the task's duration to the `DTSTART` time.
  */
 LIBICAL_ICAL_EXPORT struct icaltimetype icalcomponent_get_due(icalcomponent *comp);
 
-/** @brief Sets the due date of a VTODO task.
+/** @brief Sets the time that a VTODO task is due.
  *
- *  @param comp Valid VTODO component.
- *  @param v    Valid due date time.
+ *  @param comp A valid `VTODO` component.
+ *  @param v    A valid due date.
  *
- *  The DUE and DURATION properties are tied together:
- *  - If no duration or due properties then sets the DUE property.
- *  - If a DUE property is already set, then resets it to the value v.
- *  - If a DURATION property is already set, then calculates the new
+ *  The `DUE` and DURATION properties are tied together:
+ *  - If no `DURATION` or `DUE` properties are set, then this sets the `DUE` 
+ *    property.
+ *  - If a `DUE` property is already set, then this resets it to the value of 
+ *    @p v.
+ *  - If a `DURATION` property is already set, then this calculates the new 
  *    duration based on the supplied value of @p v.
+ *
+ *  (Note that this behavior differs from icalcomponent_set_dtend() and
+ *  icalcomponent_set_duration().)
  */
 LIBICAL_ICAL_EXPORT void icalcomponent_set_due(icalcomponent *comp, struct icaltimetype v);
 
-/**     @brief Sets the DURATION property to given icalduration.
+/**     @brief Sets the `DURATION` property to the given @ref icalduration.h 
+ *      "duration" @p v.
  *
- *      This method respects the icaltime type (DATE vs DATE-TIME) and
- *      timezone (or lack thereof).
+ *      This routine respects the @ref icaltime.h "icaltime" type (`DATE` vs 
+ *      `DATE-TIME`) and timezone (or lack thereof).
  *
- *      This also checks that a DTEND property isn't already there,
- *      and returns an error if it is. It's the caller's responsibility
- *      to remove it.
- *
- *      For the icalcomponent routines only, DTEND and DURATION are tied
- *      together. If you call this routine and DTEND exists, no action
- *      will be taken and icalerrno will be set to ICAL_MALFORMEDDATA_ERROR.
- *      If neither exists, the routine will create the appropriate
- *      property.
+ *      \note
+ *      For the `icalcomponent` functions only, the `DTEND` and `DURATION` 
+ *      properties are tied together. This function checks that a `DTEND` 
+ *      property doesn't already exist, and returns an 
+ *      `ICAL_MALFORMEDDATA_ERROR` error if it does. It's the caller's 
+ *      responsibility to remove it.
  */
 LIBICAL_ICAL_EXPORT void icalcomponent_set_duration(icalcomponent *comp,
                                                     struct icaldurationtype v);
 
-/**     @brief Gets the DURATION property as an icalduration
+/**     @brief Gets the DURATION property as an @ref icalduration.h "icalduration"
  *
- *      For the icalcomponent routines only, DTEND and DURATION are tied
- *      together.
- *      If a DURATION property is not present but a DTEND is, we use
- *      that to determine the proper end.
- *
- *      For the icalcomponent routines only, dtend and duration are tied
- *      together. If you call the get routine for one and the other
- *      exists, the routine will calculate the return value. That is, if
- *      there is a DTEND and you call get_duration, the routine will
- *      return the difference between DTEND and DTSTART.
+ *      \note
+ *      For the `icalcomponent` functions only, the `DTEND` and `DURATION` 
+ *      properties are tied together. This function uses the `DTEND` property 
+ *      to determine the proper duration if necessary. If there is a `DTEND` 
+ *      and you call this, it will return the difference between `DTEND` and 
+ *      `DTSTART`.
  */
 LIBICAL_ICAL_EXPORT struct icaldurationtype icalcomponent_get_duration(icalcomponent *comp);
 
