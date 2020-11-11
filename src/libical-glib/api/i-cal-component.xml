@@ -254,43 +254,78 @@
     </method>
     <method name="i_cal_component_set_dtstart" corresponds="icalcomponent_set_dtstart" kind="set" since="1.0">
         <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <parameter type="ICalTime *" name="v" comment="A #ICalTime"/>
-        <comment xml:space="preserve">Sets the dtstart of the #ICalComponent.</comment>
+        <parameter type="ICalTime *" name="v" comment="The new start date and time"/>
+        <comment xml:space="preserve">Sets the DTSTART property of @comp.
+*
+* This function respects the #ICalTime type (`DATE` vs `DATE-TIME`) and timezone (or lack thereof).
+        </comment>
     </method>
     <method name="i_cal_component_get_dtstart" corresponds="icalcomponent_get_dtstart" kind="get" since="1.0">
         <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <returns type="ICalTime *" annotation="transfer full" comment="A #ICalTime."/>
-        <comment xml:space="preserve">Gets the dtstart of the #ICalComponent.</comment>
+        <returns type="ICalTime *" annotation="transfer full" comment="The start date and time of @comp"/>
+        <comment xml:space="preserve">Gets the `DTSTART` property of @comp.
+*
+* If `DTSTART` is a `DATE-TIME` with a timezone parameter and a corresponding `VTIMEZONE` is present in the component, the returned component will already be in the correct timezone; otherwise the caller is responsible for converting it.
+        </comment>
     </method>
     <method name="i_cal_component_set_dtend" corresponds="icalcomponent_set_dtend" kind="set" since="1.0">
         <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <parameter type="ICalTime *" name="v" comment="A #ICalTime"/>
-        <comment xml:space="preserve">Sets the dtend of the #ICalComponent.</comment>
+        <parameter type="ICalTime *" name="v" comment="The new end date and time"/>
+        <comment xml:space="preserve">Sets the `DTEND` property of @comp.
+*
+* This function respects the icaltime type (`DATE` vs `DATE-TIME`) and timezone (or lack thereof).
+*
+* Note that for the #ICalComponent functions only, the `DTEND` and `DURATION` properties are tied together. This function checks that a `DURATION` property doesn't already exist, and returns an `ICAL_MALFORMEDDATA_ERROR` error if it does. It's the caller's responsibility to remove it.
+        </comment>
     </method>
     <method name="i_cal_component_get_dtend" corresponds="icalcomponent_get_dtend" kind="get" since="1.0">
         <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <returns type="ICalTime *" annotation="transfer full" comment="A #ICalTime."/>
-        <comment xml:space="preserve">Gets the dtend of the #ICalComponent.</comment>
+        <returns type="ICalTime *" annotation="transfer full" comment="The end date and time of @comp"/>
+        <comment xml:space="preserve">Gets the `DTEND` property of @comp.
+* 
+* If `DTSTART` is a `DATE-TIME` with a timezone parameter and a corresponding `VTIMEZONE` is present in the component, the returned component will already be in the correct timezone; otherwise the caller is responsible for converting it.
+* 
+* Note that for the #ICalComponent functions only, the `DTEND` and `DURATION` properties are tied together. This function uses the `DURATION` property to determine the proper end if necessary. If there is a `DURATION` and you call this, it will return the result of adding `DURATION` to `DTSTART`.
+        </comment>
     </method>
     <method name="i_cal_component_set_due" corresponds="icalcomponent_set_due" kind="set" since="1.0">
-        <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <parameter type="ICalTime *" name="v" comment="A #ICalTime"/>
-        <comment xml:space="preserve">Sets the due of the #ICalComponent.</comment>
+        <parameter type="ICalComponent *" name="comp" comment="A valid `VTODO` #ICalComponent"/>
+        <parameter type="ICalTime *" name="v" comment="The new due date"/>
+        <comment xml:space="preserve">Sets the time that a `VTODO` task is due.
+*
+* The `DUE` and `DURATION` properties are tied together:
+* - If no `DURATION` or `DUE` properties are set, then this sets the `DUE` property.
+* - If a `DUE` property is already set, then this resets it to the value of @v.
+* - If a `DURATION` property is already set, then this calculates the new duration based on the supplied value of @v.
+*
+* (Note that this behavior differs from #i_cal_component_set_dtend and #i_cal_component_set_duration.)
+        </comment>
     </method>
     <method name="i_cal_component_get_due" corresponds="icalcomponent_get_due" kind="get" since="1.0">
-        <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <returns type="ICalTime *" annotation="transfer full" comment="A #ICalTime."/>
-        <comment xml:space="preserve">Gets the due of the #ICalComponent.</comment>
+        <parameter type="ICalComponent *" name="comp" comment="A valid `VTODO` #ICalComponent"/>
+        <returns type="ICalTime *" annotation="transfer full" comment="The due date of @comp"/>
+        <comment xml:space="preserve">Gets the time that a `VTOTO` task is due.
+*
+* This uses the `DUE` property if it exists; otherwise, it calculates the due date by adding the task's duration to the `DTSTART` time.
+        </comment>
     </method>
     <method name="i_cal_component_set_duration" corresponds="icalcomponent_set_duration" kind="set" since="1.0">
         <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <parameter type="ICalDuration *" name="v" comment="A #ICalDuration"/>
-        <comment xml:space="preserve">Sets the duration of the #ICalComponent.</comment>
+        <parameter type="ICalDuration *" name="v" comment="The new #ICalDuration"/>
+        <comment xml:space="preserve">Sets the duration of @comp.
+*
+* This function respects the #ICalTime type (`DATE` vs `DATE-TIME`) and timezone (or lack thereof).
+*
+* Note that for the #ICalComponent functions only, the `DTEND` and `DURATION` properties are tied together. This function checks that a `DTEND` property doesn't already exist, and returns an `ICAL_MALFORMEDDATA_ERROR` error if it does. It's the caller's responsibility to remove it.
+        </comment>
     </method>
     <method name="i_cal_component_get_duration" corresponds="icalcomponent_get_duration" kind="get" since="1.0">
         <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
-        <returns type="ICalDuration *" annotation="transfer full" comment="An #ICalDuration."/>
-        <comment xml:space="preserve">Gets the duration of the #ICalComponent.</comment>
+        <returns type="ICalDuration *" annotation="transfer full" comment="The duration of @comp as a #ICalDuration."/>
+        <comment xml:space="preserve">Gets the duration of @comp.
+*
+* Note that for the #ICalComponent functions only, the `DTEND` and `DURATION` properties are tied together. This function uses the `DTEND` property to determine the proper duration if necessary. If there is a `DTEND` and you call this, it will return the difference between `DTEND` and `DTSTART`.
+        </comment>
     </method>
     <method name="i_cal_component_set_method" corresponds="icalcomponent_set_method" kind="set" since="1.0">
         <parameter type="ICalComponent *" name="comp" comment="A #ICalComponent"/>
